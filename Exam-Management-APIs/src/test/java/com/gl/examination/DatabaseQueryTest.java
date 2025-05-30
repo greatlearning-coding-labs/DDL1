@@ -303,12 +303,11 @@ public class DatabaseQueryTest {
             }
         }
 
-        List<String> expectedLower = expectedResults.stream()
-                                    .map(String::toLowerCase)
-                                    .sorted()
-                                    .toList();
+  List<String> expectedLower = expectedResults.stream()
+                                .map(String::toLowerCase)
+                                .sorted()
+                                .collect(Collectors.toList());
 
-        Collections.sort(learnerResults);
 
         assertEquals(expectedLower, learnerResults, "Learner output should match expected result ignoring case.");
     }
